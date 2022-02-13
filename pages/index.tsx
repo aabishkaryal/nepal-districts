@@ -22,7 +22,9 @@ export default function Home() {
         (d) => d.name.toLowerCase() === userInput.toLowerCase()
       );
       if (visibleDistrictIndices.includes(districtIndex)) {
-        setError(`${userInput} has already been submitted.`);
+        setError(
+          `${DistrictData[districtIndex].name} has already been submitted.`
+        );
       } else if (districtIndex >= 0) {
         inputElementRef.current.value = '';
         setVisibleDistrictIndices([...visibleDistrictIndices, districtIndex]);
@@ -39,7 +41,10 @@ export default function Home() {
         How many districts of Nepal can you name?
       </h1>
 
-      <form onSubmit={addDistrict}>
+      <form
+        onSubmit={addDistrict}
+        className="flex w-full flex-col items-center justify-center space-y-4 px-6"
+      >
         <input
           ref={inputElementRef}
           type="text"
