@@ -3,5 +3,12 @@ type props = {
 };
 
 export default function District({ shape }: props) {
-  return <path stroke={'#000'} fill="#fff" d={shape} />;
+  return (
+    <path
+      className="svg-property animate-draw-path"
+      stroke={'#000'}
+      fill="#fff"
+      d={shape}
+    />
+  );
 }
