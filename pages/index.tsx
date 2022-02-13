@@ -1,4 +1,4 @@
-import { FormEvent, useCallback, useMemo, useRef, useState } from 'react';
+import { FormEvent, useRef, useState } from 'react';
 
 import DistrictData from '../data/districts.json';
 
@@ -14,28 +14,24 @@ export default function Home() {
 
   const inputElementRef = useRef<HTMLInputElement>(null);
 
-  const addDistrict = useCallback(
-    (e: FormEvent<HTMLFormElement>) => {
-      e.preventDefault();
-      if (inputElementRef.current?.value) {
-        const userInput = inputElementRef.current.value;
-        const districtIndex = DistrictData.findIndex(
-          (d) => d.name.toLowerCase() === userInput.toLowerCase()
-        );
-        if (visibleDistrictIndices.includes(districtIndex)) {
-          setError(`${userInput} has already been submitted.`);
-        } else if (districtIndex >= 0) {
-          const newVisibleDistrictIndices = Array.from(visibleDistrictIndices);
-          newVisibleDistrictIndices.push(districtIndex);
-          setVisibleDistrictIndices(newVisibleDistrictIndices);
-          setError('');
-        } else {
-          setError(`No district named ${userInput}`);
-        }
+  const addDistrict = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (inputElementRef.current?.value) {
+      const userInput = inputElementRef.current.value;
+      const districtIndex = DistrictData.findIndex(
+        (d) => d.name.toLowerCase() === userInput.toLowerCase()
+      );
+      if (visibleDistrictIndices.includes(districtIndex)) {
+        setError(`${userInput} has already been submitted.`);
+      } else if (districtIndex >= 0) {
+        inputElementRef.current.value = '';
+        setVisibleDistrictIndices([...visibleDistrictIndices, districtIndex]);
+        setError('');
+      } else {
+        setError(`No district named ${userInput}`);
       }
-    },
-    [inputElementRef, setError, setVisibleDistrictIndices]
-  );
+    }
+  };
 
   return (
     <div className="flex h-screen w-screen flex-col items-center justify-center space-y-10">
