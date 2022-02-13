@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  .svg-property {
+    stroke-dasharray: 100%;
+    stroke-dashoffset: 100%;
+  }
+}
