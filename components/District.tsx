@@ -1,10 +1,7 @@
 type props = {
-  name: string
-  shape: string
-}
+  shape: string;
+};
 
-export default function District({ name, shape }: props) {
-  return (
-    <path className="" stroke="#000" strokeWidth="1px" fill="#fff" d={shape} />
-  )
+export default function District({ shape }: props) {
+  return <path stroke={'#000'} fill="#fff" d={shape} />;
 }
