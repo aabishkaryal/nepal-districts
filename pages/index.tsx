@@ -1,4 +1,4 @@
-import { FormEvent, useRef, useState } from 'react';
+import { FormEvent, useEffect, useRef, useState } from 'react';
 
 import DistrictData from '../data/districts.json';
 
@@ -8,7 +8,21 @@ import ProgressText from '../components/ProgressText';
 export default function Home() {
   const [visibleDistrictIndices, setVisibleDistrictIndices] = useState<
     number[]
-  >([]);
+  >(() => {
+    if (typeof window !== 'undefined') {
+      return localStorage.visibleDistrictIndices
+        ? JSON.parse(localStorage.visibleDistrictIndices)
+        : [];
+    }
+    return [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem(
+      'visibleDistrictIndices',
+      JSON.stringify(visibleDistrictIndices)
+    );
+  }, [visibleDistrictIndices]);
 
   const [error, setError] = useState('');
 
@@ -33,6 +47,10 @@ export default function Home() {
         setError(`No district named ${userInput}`);
       }
     }
+  };
+
+  const resetProgress = () => {
+    setVisibleDistrictIndices([]);
   };
 
   return (
@@ -63,6 +81,7 @@ export default function Home() {
       <ProgressText
         districts={DistrictData}
         visibleDistrictIndices={visibleDistrictIndices}
+        reset={resetProgress}
       />
     </div>
   );
