@@ -36,7 +36,7 @@ export default function Home() {
   };
 
   return (
-    <div className="flex h-screen w-screen flex-col items-center justify-center space-y-10">
+    <div className="flex min-h-screen w-screen flex-col items-center justify-center space-y-10">
       <h1 className="px-4 text-center text-xl font-bold sm:text-2xl md:text-3xl">
         How many districts of Nepal can you name?
       </h1>
