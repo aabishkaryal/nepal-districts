@@ -4,8 +4,8 @@ type props = {
 };
 
 const colors: string[] = Array(7)
-  .fill('#')
-  .map((c) => c + Math.random().toString(16).substring(2,8));
+  .fill('hsl(_)')
+  .map((c) => c.replace(/_/g, `${Math.floor(Math.random()*360)}, 100%, 50%`));
 
 export default function District({ province, shape }: props) {
   return (
