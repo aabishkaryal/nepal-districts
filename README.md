@@ -1,6 +1,6 @@
 # Nepal-Districts
 
-#### Live: <https://district.aabishkararyal.com>
+#### Live: <https://districts.aabishkararyal.com>
 
 #### Repo: <https://github.com/aabishkaryal/nepal-districts>
 
