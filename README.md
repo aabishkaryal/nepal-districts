@@ -26,6 +26,7 @@ Much of the data I got was from <https://github.com/keyrunpay/react-nepal-map>, 
 These are features I want to implement if this project gets some stars/tractions. I am also open to contributions.
 
 - [ ] Animations
+- [ ] Show some interesting fact about the district when user types in a correct district.
 - [ ] Casual and Hardcore modes
 - [ ] Leaderboard for hardcore mode
 - [ ] List districts by different factors like population, area. (Super hardcore)
