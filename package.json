@@ -1,4 +1,23 @@
 {
+  "name": "nepal-districts",
+  "version": "1.0.0",
+  "description": "Fun website to challenge naming all districts in Nepal.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aabishkaryal/nepal-districts.git"
+  },
+  "keywords": [
+    "nepal",
+    "districts",
+    "challenge",
+    "react-nepal"
+  ],
+  "author": "Aabishkar Aryal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aabishkaryal/nepal-districts/issues"
+  },
+  "homepage": "https://github.com/aabishkaryal/nepal-districts#readme",
   "private": true,
   "scripts": {
     "dev": "next dev",
