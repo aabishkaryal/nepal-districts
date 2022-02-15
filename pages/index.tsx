@@ -33,7 +33,7 @@ export default function Home() {
     if (inputElementRef.current?.value) {
       const userInput = inputElementRef.current.value;
       const districtIndex = DistrictData.findIndex(
-        (d) => d.name.toLowerCase() === userInput.toLowerCase()
+        (d) => d.name.toLowerCase() === userInput.trim().toLowerCase()
       );
       if (visibleDistrictIndices.includes(districtIndex)) {
         setError(
