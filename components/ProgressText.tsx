@@ -22,7 +22,7 @@ export default function ProgressText({
   const percentage = (totalVisibleArea / totalArea) * 100;
   if (visibleDistrictIndices.length > 0) {
     return (
-      <div className="text-center">
+      <div className="px-4 text-center">
         You named{' '}
         <span className="text-violet-400 underline">
           {visibleDistrictIndices.length}
