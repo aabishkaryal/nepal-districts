@@ -46,7 +46,8 @@ export default function Home() {
       setError(
         `${DistrictData[districtIndex].name} has already been submitted.`
       );
-    } else if (districtIndex >= 0) {
+    } else if (districtIndex >= 0 && inputElementRef.current?.value) {
+      inputElementRef.current.value = '';
       setVisibleDistrictIndices([...visibleDistrictIndices, districtIndex]);
     } else {
       setError(`No district named ${userInput}`);
