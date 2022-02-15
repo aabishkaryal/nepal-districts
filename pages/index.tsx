@@ -26,20 +26,45 @@ export default function Home() {
   }, [visibleDistrictIndices]);
 
   const [error, setError] = useState('');
+  const [hint, setHint] = useState('');
 
   const inputElementRef = useRef<HTMLInputElement>(null);
 
+  const addDistrictFromHint = (hint: string) => {
+    if (hint != '') {
+      setHint('');
+    }
+    if (error != '') {
+      setError('');
+    }
+
+    const userInput = hint;
+    const districtIndex = DistrictData.findIndex(
+      (d) => d.name.toLowerCase() === userInput.toLowerCase()
+    );
+    if (visibleDistrictIndices.includes(districtIndex)) {
+      setError(
+        `${DistrictData[districtIndex].name} has already been submitted.`
+      );
+    } else if (districtIndex >= 0) {
+      setVisibleDistrictIndices([...visibleDistrictIndices, districtIndex]);
+    } else {
+      setError(`No district named ${userInput}`);
+    }
+  };
+
   const addDistrict = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (hint != '') {
+      setHint('');
+    }
+    if (error != '') {
+      setError('');
+    }
     if (inputElementRef.current?.value) {
       const userInput = inputElementRef.current.value;
-      const districtIndex = DistrictData.findIndex((d) =>
-        stringSimilarity.compareTwoStrings(
-          d.name.toLowerCase(),
-          userInput.toLowerCase()
-        ) > 0.6
-          ? true
-          : false
+      const districtIndex = DistrictData.findIndex(
+        (d) => d.name.toLowerCase() === userInput.toLowerCase()
       );
       if (visibleDistrictIndices.includes(districtIndex)) {
         setError(
@@ -50,7 +75,19 @@ export default function Home() {
         setVisibleDistrictIndices([...visibleDistrictIndices, districtIndex]);
         setError('');
       } else {
-        setError(`No district named ${userInput}`);
+        const possibleDistrictIndex = DistrictData.findIndex((d) =>
+          stringSimilarity.compareTwoStrings(
+            d.name.toLowerCase(),
+            userInput.toLowerCase()
+          ) > 0.6
+            ? true
+            : false
+        );
+        if (possibleDistrictIndex >= 0) {
+          setHint(`${DistrictData[possibleDistrictIndex].name}`);
+        } else {
+          setError(`No district named ${userInput}`);
+        }
       }
     }
   };
@@ -58,7 +95,6 @@ export default function Home() {
   const resetProgress = () => {
     setVisibleDistrictIndices([]);
   };
-  console.log(stringSimilarity.compareTwoStrings('terhathum', 'tehrathum'));
 
   return (
     <div className="flex h-screen w-screen flex-col items-center justify-center space-y-10">
@@ -78,6 +114,14 @@ export default function Home() {
         />
         {error != '' && (
           <div className="w-full text-center text-sm text-red-500">{error}</div>
+        )}
+        {hint != '' && (
+          <div
+            className="text-black-600 w-full cursor-pointer text-center text-base"
+            onClick={() => addDistrictFromHint(hint)}
+          >
+            Did you mean? <span className="font-semibold">{hint}</span>
+          </div>
         )}
       </form>
 
