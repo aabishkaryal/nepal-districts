@@ -4,6 +4,7 @@ import DistrictData from '../data/districts.json';
 
 import DistrictMap from '../components/DistrictMap';
 import ProgressText from '../components/ProgressText';
+import stringSimilarity from 'string-similarity';
 
 export default function Home() {
   const [visibleDistrictIndices, setVisibleDistrictIndices] = useState<
@@ -32,8 +33,13 @@ export default function Home() {
     e.preventDefault();
     if (inputElementRef.current?.value) {
       const userInput = inputElementRef.current.value;
-      const districtIndex = DistrictData.findIndex(
-        (d) => d.name.toLowerCase() === userInput.toLowerCase()
+      const districtIndex = DistrictData.findIndex((d) =>
+        stringSimilarity.compareTwoStrings(
+          d.name.toLowerCase(),
+          userInput.toLowerCase()
+        ) > 0.6
+          ? true
+          : false
       );
       if (visibleDistrictIndices.includes(districtIndex)) {
         setError(
@@ -52,6 +58,7 @@ export default function Home() {
   const resetProgress = () => {
     setVisibleDistrictIndices([]);
   };
+  console.log(stringSimilarity.compareTwoStrings('terhathum', 'tehrathum'));
 
   return (
     <div className="flex h-screen w-screen flex-col items-center justify-center space-y-10">
