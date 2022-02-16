@@ -4,14 +4,12 @@
 
 #### Repo: <https://github.com/aabishkaryal/nepal-districts>
 
-### Local Setup:
-
-- Clone the repo
-  `https://github.com/aabishkaryal/nepal-districts.git`
-- Install dependencies
-  `yarn install`
-- Start next server
-  `yarn dev`
+## Table Of Content:
+  - [Inspiration:](#inspiration)
+  - [Technologies Used:](#technologies-used)
+  - [Roadmap:](#roadmap)
+  - [Contributing Guide:](#contributing-guide)
+  - [Development Setup:](#development-setup)
 
 ### Inspiration:
 
@@ -20,10 +18,6 @@ Inspired from the states game in friends (season 7, episode 8) and <https://iafi
 ### Technologies Used:
 
 I decided to start with an MVP of a simple static website made with **[Nextjs](https://nextjs.org)** Nextjs provided me with the flexibility to shift to a dynamic website if needed later on. I used **[tailwindcss](https://tailwindcss.com)** for styling.
-
-### Data:
-
-Much of the data I got was from <https://github.com/keyrunpay/react-nepal-map>, although I had to correct some fields but most of it was okay. To my surprise, the total area of all the districts didn't add up to the total area of Nepal. So, I cross-checked with wikipedia and there was a slight improvement but it's still a little bit off.
 
 ### Roadmap:
 
@@ -37,3 +31,23 @@ These are features I want to implement if this project gets some stars/tractions
 - [ ] Separate mode where user can guess the district by shape, location and maybe some facts
 - [ ] Better Error Handling
 - [ ] Multiple spelling support
+
+### Contributing Guide:
+
+Want to contribute? Please check the guidelines below:
+*Please use dev branch rather than main for the latest development changes.*
+
+- Fork the repository
+- Create a feature/patch branch from dev branch
+- Commit your changes
+- Push to the dev branch & open a pull request
+If you want to add new feature to the project, please raise an issue as well as join our [Discord Server](https://dsc.gg/askbuddie) for discussion.
+
+### Development Setup:
+
+- Clone the repo
+  `git clone https://github.com/aabishkaryal/nepal-districts.git`
+- Install dependencies
+  `yarn install`
+- Start next server
+  `yarn dev`
