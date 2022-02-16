@@ -30,7 +30,6 @@ export default function Home() {
 
   const addDistrict = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    debugger;
     if (inputElementRef.current?.value) {
       const userInput = inputElementRef.current.value.trim();
       const districtIndex = DistrictData.findIndex(
