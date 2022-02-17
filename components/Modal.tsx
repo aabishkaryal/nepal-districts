@@ -12,27 +12,25 @@ type districtDetails = {
   value: string | number;
 }
 
-
-const Modal = (props: props) => {
-  const { pageY, pageX, id } = props || {}
+export default function Modal({pageX, pageY, id}:props) {
   const district = DistrictData[parseInt(id)]
 
   const districtDetails: districtDetails[] = [
     {
       label: "Elevation",
-      value: district?.elevation
+      value: district.elevation
     },
     {
       label: "Area",
-      value: `${district?.area.toLocaleString('en-Us')} km²`
+      value: `${district.area.toLocaleString('en-Us')} km²`
     },
     {
       label: "Province",
-      value: district?.province
+      value: district.province
     },
     {
       label: "Population",
-      value: district?.population
+      value: district.population
     }
   ]
 
@@ -42,17 +40,15 @@ const Modal = (props: props) => {
       left: pageX,
     }} className="max-w-md w-56 absolute py-2 px-4 bg-white shadow-lg rounded-lg ">
       <header>
-        <h1 className="font-bold text-gray-800 ">{district?.name}</h1>
+        <h1 className="font-bold text-gray-800 ">{district.name}</h1>
       </header>
       <main className="mt-1">
         {
           districtDetails.map((district: any, index: number) => (
-            <p key={index}><span className="font-semibold">{district.label}</span>: {district?.value}</p>
+            <p key={index}><span className="font-semibold">{district.label}</span>: {district.value}</p>
           ))
         }
       </main>
     </div>
   )
 }
-
-export default Modal;
