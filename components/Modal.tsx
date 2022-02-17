@@ -1,8 +1,11 @@
 import DistrictData from '../data/districts.json';
 
-type props = {
-  data: React.MouseEvent<SVGPathElement> | null;
-};
+type props ={
+  pageX: number;
+  pageY: number;
+  id: string;
+  isEmpty?: boolean;
+}
 
 type districtDetails = {
   label: string;
@@ -11,9 +14,8 @@ type districtDetails = {
 
 
 const Modal = (props: props) => {
-  const { data } = props || {}
-  const { pageY, pageX, target } = data || {}
-  const district = DistrictData[(target as any)?.id]
+  const { pageY, pageX, id } = props || {}
+  const district = DistrictData[parseInt(id)]
 
   const districtDetails: districtDetails[] = [
     {
@@ -22,7 +24,7 @@ const Modal = (props: props) => {
     },
     {
       label: "Area",
-      value: district?.districtArea
+      value: `${district?.area.toLocaleString('en-Us')} km²`
     },
     {
       label: "Province",
@@ -45,7 +47,7 @@ const Modal = (props: props) => {
       <main className="mt-1">
         {
           districtDetails.map((district: any, index: number) => (
-            <p><span className="font-semibold">{district.label}</span>: {district?.value}</p>
+            <p key={index}><span className="font-semibold">{district.label}</span>: {district?.value}</p>
           ))
         }
       </main>

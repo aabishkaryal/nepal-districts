@@ -1,11 +1,17 @@
 import React from "react";
 
+type onMouseOver ={
+  pageX: number;
+  pageY: number;
+  id: string;
+}
+
 type props = {
   province: number;
   shape: string;
   id: number,
-  onMouseOver: (event: React.MouseEvent<SVGPathElement>) => void
-  onMouseOut: (event: React.MouseEvent<SVGPathElement>) => void
+  onMouseOver?: ({pageX, pageY, id}:onMouseOver) => void,
+  onMouseOut?: () => void
 };
 
 const colors: string[] = Array(7)
@@ -20,8 +26,11 @@ export default function District({ province, shape, id, onMouseOver, onMouseOut 
       stroke={'#000'}
       fill={colors[province - 1]}
       d={shape}
-      onMouseOver={(event) => onMouseOver && onMouseOver(event)}
-      onMouseOut={(event) => onMouseOut && onMouseOut(event)}
+      onMouseOver={(event:React.MouseEvent<SVGPathElement>) => {
+        const {pageX, pageY, currentTarget:{id}} = event;
+        onMouseOver && onMouseOver({pageX, pageY, id});
+      }}
+      onMouseOut={() => onMouseOut && onMouseOut()}
     />
   );
 }
