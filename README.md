@@ -35,10 +35,9 @@ These are features I want to implement if this project gets some stars/tractions
 ### Contributing Guide:
 
 Want to contribute? Please check the guidelines below:
-*Please use dev branch rather than main for the latest development changes.*
 
 - Fork the repository
-- Create a feature/patch branch from dev branch
+- Create a feature/patch branch from main branch
 - Commit your changes
 - Push to the dev branch & open a pull request
 If you want to add new feature to the project, please raise an issue as well as join our [Discord Server](https://dsc.gg/askbuddie) for discussion.
