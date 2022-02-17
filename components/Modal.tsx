@@ -1,4 +1,4 @@
-import DistrictData from '../../data/districts.json';
+import DistrictData from '../data/districts.json';
 
 type props = {
   data: React.MouseEvent<SVGPathElement> | null;
