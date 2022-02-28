@@ -1,5 +1,5 @@
-import { DistrictInfo } from '../types/District';
-import District from './District';
+import { DistrictInfo } from 'types/District';
+import District from 'components/District';
 
 type props = {
   districts: DistrictInfo[];

@@ -1,9 +1,9 @@
 import { FormEvent, useEffect, useRef, useState } from 'react';
 
-import DistrictData from '../data/districts.json';
+import DistrictData from 'data/districts.json';
 
-import DistrictMap from '../components/DistrictMap';
-import ProgressText from '../components/ProgressText';
+import DistrictMap from 'components/DistrictMap';
+import ProgressText from 'components/ProgressText';
 
 export default function Home() {
   const [visibleDistrictIndices, setVisibleDistrictIndices] = useState<
