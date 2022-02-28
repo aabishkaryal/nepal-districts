@@ -3,9 +3,9 @@ import Link from 'next/link';
 
 export default function Index() {
   return (
-    <div className="flex flex-col justify-center">
+    <div className="mt-8 mb-4 flex flex-col justify-center space-y-6">
       {/* Hero */}
-      <div className="my-8 space-y-2 px-4">
+      <div className="space-y-2 px-4">
         <h1 className="bold text-justify text-3xl">
           How well do you know Nepal?
         </h1>
@@ -27,6 +27,7 @@ export default function Index() {
           </div>
         </Link>
       </div>
+      <NepalMap />
     </div>
   );
 }
