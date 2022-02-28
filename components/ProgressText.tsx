@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { DistrictInfo } from 'types/District';
+import { DistrictInfo } from 'types/DistrictInfo';
 
 type props = {
   districts: DistrictInfo[];
