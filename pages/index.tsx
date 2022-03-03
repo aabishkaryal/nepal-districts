@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export default function Index() {
   return (
-    <div className="mt-8 mb-4 flex flex-col justify-center space-y-6">
+    <div className="mt-8 mb-4 flex flex-col items-center justify-center space-y-6">
       {/* Hero */}
       <div className="space-y-2 px-4">
         <h1 className="bold text-justify text-3xl">
@@ -17,14 +17,10 @@ export default function Index() {
       {/* Call to action */}
       <div className="flex w-full flex-nowrap justify-evenly">
         <Link href="/casual">
-          <div className="w-[115px] rounded-md bg-blue-500 px-3 py-1 text-center text-xl text-white shadow-sm">
-            Casual
-          </div>
+          <div className="button-primary">Casual</div>
         </Link>
         <Link href="/hardcore">
-          <div className="w-[115px] rounded-md bg-blue-500 px-3 py-1 text-center text-xl text-white shadow-sm">
-            Hardcore
-          </div>
+          <div className="button-primary">Hardcore</div>
         </Link>
       </div>
       <NepalMap />

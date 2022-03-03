@@ -8,3 +8,7 @@
     stroke-dashoffset: 100%;
   }
 }
+
+.button-primary {
+  @apply w-[115px] cursor-pointer rounded-md bg-blue-500 px-3 py-1 text-center text-xl text-white shadow-sm;
+}
